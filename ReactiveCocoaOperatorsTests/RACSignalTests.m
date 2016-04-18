@@ -467,12 +467,12 @@
     	take:9];
 
     __block NSUInteger count = 0;
-
+    
     // 输出：1 2 3 4 5 6 7 8 9
     [result subscribeNext:^(id x) {
         NSLog(@"%@", @(++count));
     }];
-
+    // waitUntilCompleted用法 20160418 by FasaMo
     [result waitUntilCompleted:nil];
 }
 
@@ -501,6 +501,7 @@
     RACSignal *result = [RACSignal merge:@[ letters, numbers ]];
 
     // 输出：A 1 B 2 C 3 D 4 E 5 F 6 G 7 H 8 I 9
+    // 两个信号一般是同一类型的值，来哪个展示哪个
     [result subscribeNext:^(id x) {
         NSLog(@"%@", x);
     }];
