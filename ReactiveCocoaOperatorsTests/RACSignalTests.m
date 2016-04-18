@@ -253,6 +253,15 @@
 
 #pragma mark - Class methods
 
+/* 总结
+    zip -> 成对出现
+    combineLatest -> 两者都要有值，并且取各自最新的值
+    merge -> 每个信号都subscribeNext同类型的值，取最新的值
+    contact -> A contact B，先处理完A的信号再处理B的信号
+    if then else ; switch cases default -> 条件
+    interval onScheduler -> 定时器
+*/
+
 /// RACSubject
 - (void)testClassMethod_combineLatest_reduce {
     RACSubject *letters = [RACSubject subject];
