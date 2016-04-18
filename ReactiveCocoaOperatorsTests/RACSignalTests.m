@@ -265,6 +265,7 @@
         }];
 
     // 输出：E1 E2 E3 E4 E5 E6 E7 E8 E9 F9 G9 H9 I9
+    // 两者都要有值，并且取各自最新的值
     [result subscribeNext:^(id x) {
         NSLog(@"%@", x);
     }];
@@ -337,6 +338,7 @@
     RACSignal *result = [RACSignal concat:@[ letters, numbers ]];
 
     // 输出：A B C D E F G H I 1 2 3 4 5 6 7 8 9
+    // 先执行完letters，再执行numbers
     [result subscribeNext:^(id x) {
         NSLog(@"%@", x);
     }];
